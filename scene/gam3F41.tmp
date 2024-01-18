@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cuogcfqxaf1gn"]
+
+[ext_resource type="Script" path="res://scene/game.gd" id="1_52cip"]
+[ext_resource type="PackedScene" uid="uid://du15p82i5c8hi" path="res://entities/UI/HUD/HUD.tscn" id="2_jum07"]
+[ext_resource type="PackedScene" uid="uid://pvci5xpvj4a3" path="res://entities/player/player.tscn" id="5_1iord"]
+[ext_resource type="PackedScene" uid="uid://expanu0q8l87" path="res://entities/level/maps/tutorial/tutorial.tscn" id="5_uq28e"]
+[ext_resource type="Script" path="res://entities/level/maps/map.gd" id="6_ml1kl"]
+[ext_resource type="PackedScene" uid="uid://cd0u1uidsgphd" path="res://entities/enemies/basic/basic_enemy.tscn" id="6_wjm1b"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_52cip")
+
+[node name="HUD" parent="." instance=ExtResource("2_jum07")]
+
+[node name="Tutorial" parent="." instance=ExtResource("5_uq28e")]
+script = ExtResource("6_ml1kl")
+
+[node name="Entities" type="Node" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("5_1iord")]
+position = Vector2(784, 168)
+
+[node name="Base Enemy" parent="Entities" instance=ExtResource("6_wjm1b")]
+position = Vector2(-67, 330)

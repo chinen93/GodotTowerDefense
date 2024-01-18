@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd0u1uidsgphd"]
+
+[ext_resource type="Script" path="res://entities/enemies/basic/basic_enemy.gd" id="1_ahti4"]
+[ext_resource type="Texture2D" uid="uid://b6w2fkt8rewlw" path="res://assets/entities/enemies/basic/tile_0121.png" id="2_3bxd6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_248ga"]
+
+[node name="Basic Enemy" type="CharacterBody2D"]
+script = ExtResource("1_ahti4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3bxd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_248ga")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

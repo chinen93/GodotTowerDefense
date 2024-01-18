@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhmhblub45jni"]
+
+[ext_resource type="PackedScene" uid="uid://du15p82i5c8hi" path="res://entities/UI/HUD/HUD.tscn" id="2_jum07"]
+[ext_resource type="PackedScene" uid="uid://expanu0q8l87" path="res://entities/level/maps/tutorial/tutorial.tscn" id="5_uq28e"]
+[ext_resource type="Script" path="res://entities/level/maps/map.gd" id="6_ml1kl"]
+
+[node name="Game" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("2_jum07")]
+
+[node name="Tutorial" parent="." instance=ExtResource("5_uq28e")]
+unique_name_in_owner = true
+script = ExtResource("6_ml1kl")

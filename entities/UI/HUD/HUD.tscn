@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://du15p82i5c8hi"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello World ! Testing Label"

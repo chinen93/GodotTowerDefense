@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuogcfqxaf1gn"]
+
+[ext_resource type="PackedScene" uid="uid://pvci5xpvj4a3" path="res://assets/player/player.tscn" id="1_kkat7"]
+[ext_resource type="Script" path="res://scene/main_game.gd" id="1_trmes"]
+[ext_resource type="PackedScene" uid="uid://cd0u1uidsgphd" path="res://assets/enemies/basic/basic_enemy.tscn" id="2_0htmq"]
+[ext_resource type="PackedScene" uid="uid://cpmvh8r1ksapi" path="res://assets/enemies/spawn/spawn_point.tscn" id="3_4iqrq"]
+[ext_resource type="PackedScene" uid="uid://cdticmex22anh" path="res://assets/tower/tower.tscn" id="4_iacwd"]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource("1_trmes")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello World ! Testing Label"
+
+[node name="Player" parent="." instance=ExtResource("1_kkat7")]
+position = Vector2(784, 168)
+
+[node name="Base Enemy" parent="." instance=ExtResource("2_0htmq")]
+position = Vector2(-67, 330)
+
+[node name="SpawnPoint" parent="." instance=ExtResource("3_4iqrq")]
+position = Vector2(60, 319)
+
+[node name="Tower" parent="." instance=ExtResource("4_iacwd")]
+position = Vector2(1074, 363)
