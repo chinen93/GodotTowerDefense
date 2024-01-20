@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://bql8ox82qf6fd"]
+[gd_scene load_steps=2 format=3 uid="uid://bql8ox82qf6fd"]
+
+[ext_resource type="Script" path="res://entities/level/obtacles/obstacle.gd" id="1_0tknl"]
 
 [node name="Obstacle" type="Area2D"]
+script = ExtResource("1_0tknl")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

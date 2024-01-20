@@ -16,16 +16,7 @@ navigation_polygon = SubResource("NavigationPolygon_f86hu")
 script = ExtResource("1_s6sdn")
 
 [node name="LineObstacle" parent="." instance=ExtResource("2_yt505")]
-position = Vector2(304, 102)
+position = Vector2(408, 214)
 
 [node name="LineObstacle2" parent="." instance=ExtResource("2_yt505")]
-position = Vector2(245, 266)
-
-[node name="LineObstacle3" parent="." instance=ExtResource("2_yt505")]
-position = Vector2(445, 186)
-
-[node name="LineObstacle4" parent="." instance=ExtResource("2_yt505")]
-position = Vector2(305, 15)
-
-[node name="LineObstacle5" parent="." instance=ExtResource("2_yt505")]
-position = Vector2(446, 271)
+position = Vector2(265, 252)

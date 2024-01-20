@@ -21,6 +21,7 @@ func _actor_setup():
 
 	# Now that the navigation map is no longer empty, set the movement target.
 	var map: Node2D = get_tree().get_nodes_in_group("maps")[0]
+	
 	var objective: Node2D = map.get_node("%Objective")
 	nav_agent.set_target_position(objective.global_position)
 	
