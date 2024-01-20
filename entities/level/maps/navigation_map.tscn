@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn7yexawjqfr8"]
+
+[ext_resource type="Script" path="res://entities/level/maps/navigation_map.gd" id="1_s6sdn"]
+[ext_resource type="PackedScene" uid="uid://bwhspsx8fm65g" path="res://entities/level/obtacles/line/line_obstacle.tscn" id="2_yt505"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f86hu"]
+vertices = PackedVector2Array(30, -36, 48, 76, -77, 46, -66, -50)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-75, -62, -89, 54, 61, 90, 39, -45)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="NavigationMap" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_f86hu")
+script = ExtResource("1_s6sdn")
+
+[node name="LineObstacle" parent="." instance=ExtResource("2_yt505")]
+position = Vector2(366, 217)

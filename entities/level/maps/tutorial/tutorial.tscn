@@ -1,15 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://expanu0q8l87"]
 
 [ext_resource type="PackedScene" uid="uid://cdticmex22anh" path="res://entities/level/objective/objective.tscn" id="1_hrtwc"]
+[ext_resource type="PackedScene" uid="uid://cn7yexawjqfr8" path="res://entities/level/maps/navigation_map.tscn" id="2_guod4"]
 [ext_resource type="PackedScene" uid="uid://cpmvh8r1ksapi" path="res://entities/level/spawn/spawn_point.tscn" id="2_tymxq"]
 [ext_resource type="PackedScene" uid="uid://pvci5xpvj4a3" path="res://entities/player/player.tscn" id="3_0d1tk"]
 [ext_resource type="TileSet" uid="uid://ba2sx0o5prjnf" path="res://assets/tilemap/tileset.tres" id="5_40sk3"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_hl8bp"]
-vertices = PackedVector2Array(627, -22, 623, 424, -35, 426, -35, -29)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-45, -40, -45, 437, 633, 434, 638, -32)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Tutorial" type="Node2D" groups=["maps"]]
 
@@ -24,9 +19,7 @@ layer_1/name = "Ground Objects"
 layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_hl8bp")
-navigation_layers = 3
+[node name="NavigationMap" parent="." instance=ExtResource("2_guod4")]
 
 [node name="MapObjectives" type="Node" parent="."]
 

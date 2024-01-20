@@ -11,8 +11,6 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
-	#nav_agent.path_desired_distance = 4.0
-	#nav_agent.target_desired_distance = 4.0
 	
 	# Make sure to not await during _ready.
 	call_deferred("_actor_setup")
