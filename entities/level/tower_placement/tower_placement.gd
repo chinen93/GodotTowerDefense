@@ -1,0 +1,2 @@
+class_name TowerPlacement
+extends Area2D

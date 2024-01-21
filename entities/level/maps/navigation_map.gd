@@ -1,7 +1,7 @@
 class_name NavigationMap
 extends NavigationRegion2D
 
-func _ready() -> void:		
+func _ready() -> void:	
 	add_obstacle(get_node("LineObstacle"))
 	add_obstacle(get_node("LineObstacle2"))
 	add_obstacle(get_node("LineObstacle3"))
@@ -16,4 +16,3 @@ func add_obstacle(obstacle:Obstacle) -> void:
 	new_nav_polygon.add_outline(collision_outline)
 	NavigationServer2D.bake_from_source_geometry_data(new_nav_polygon, NavigationMeshSourceGeometryData2D.new());
 	navigation_polygon = new_nav_polygon
-

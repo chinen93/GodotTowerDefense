@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var speed := 50
+@export var speed := 100
 @export var health := 100:
 	set = set_health
 @export var kill_reward := 100
@@ -28,9 +28,10 @@ func _actor_setup():
 func _physics_process(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		return
-	
-	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
+
 	var cur_agent_pos: Vector2 = global_position
+	var next_path_pos: Vector2 = nav_agent.get_next_path_position()
+
 	velocity = cur_agent_pos.direction_to(next_path_pos) * speed
 	move_and_slide()
 
