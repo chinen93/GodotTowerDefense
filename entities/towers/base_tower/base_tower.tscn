@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dib8t20w7jc27"]
+[gd_scene load_steps=5 format=3 uid="uid://dib8t20w7jc27"]
 
 [ext_resource type="Texture2D" uid="uid://csr1vkg0ovynf" path="res://assets/entities/towers/tile_0084.png" id="1_1aiud"]
 [ext_resource type="Script" path="res://entities/towers/base_tower/base_tower.gd" id="1_vn3ca"]
-[ext_resource type="PackedScene" uid="uid://dt75s5pm7xlsb" path="res://entities/towers/tower.tscn" id="3_70xdr"]
+[ext_resource type="PackedScene" uid="uid://cnhxi3tx3abn" path="res://entities/towers/tower/tower_range.tscn" id="3_7n1o6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hutu3"]
 
 [node name="BaseTower" type="Area2D"]
 script = ExtResource("1_vn3ca")
@@ -10,4 +12,9 @@ script = ExtResource("1_vn3ca")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1aiud")
 
-[node name="Tower" parent="." instance=ExtResource("3_70xdr")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hutu3")
+
+[node name="TowerRange" parent="." instance=ExtResource("3_7n1o6")]
+
+[node name="Timer" type="Timer" parent="."]

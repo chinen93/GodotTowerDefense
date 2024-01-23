@@ -5,13 +5,30 @@ extends Area2D
 @export var damage: float = 20
 @export var target_priority: int
 
+@onready var collision := $TowerCollision as CollisionShape2D
 @onready var tower_range := $TowerRange as TowerRange
 @onready var timer := $Timer as Timer
 
 var is_on_cooldown: bool = false
 
-func can_place(position: Vector2) -> bool:
-	return false
+func _ready() -> void:
+	timer.connect("timeout", self._on_timer_timeout)
+	
+func remove() -> void:
+	queue_free()
+
+func can_place() -> bool:
+	var place_valid = false
+	var overlapping_areas = get_overlapping_areas()
+	for area in overlapping_areas:
+		
+		if is_instance_of(area, TowerPlacement):
+			place_valid = true
+		
+		if is_instance_of(area, Tower):
+			return false
+			
+	return place_valid
 
 func start_cooldown():
 	is_on_cooldown = true
@@ -35,4 +52,3 @@ func _process(delay: float) -> void:
 
 func _on_timer_timeout():
 	is_on_cooldown = false
-

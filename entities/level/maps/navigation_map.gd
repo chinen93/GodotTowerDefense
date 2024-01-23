@@ -8,7 +8,7 @@ func _ready() -> void:
 	add_obstacle(get_node("LineObstacle4"))
 	add_obstacle(get_node("LineObstacle5"))
 
-func add_obstacle(obstacle:Obstacle) -> void:	
+func add_obstacle(obstacle: Obstacle) -> void:	
 	var new_nav_polygon: NavigationPolygon = navigation_polygon.duplicate()
 	
 	var collision_outline: PackedVector2Array = obstacle.get_polygon()

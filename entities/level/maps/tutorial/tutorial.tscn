@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://expanu0q8l87"]
+[gd_scene load_steps=11 format=3 uid="uid://expanu0q8l87"]
 
 [ext_resource type="PackedScene" uid="uid://cdticmex22anh" path="res://entities/level/objective/objective.tscn" id="1_hrtwc"]
+[ext_resource type="Script" path="res://entities/level/maps/map.gd" id="1_lfbll"]
 [ext_resource type="PackedScene" uid="uid://cn7yexawjqfr8" path="res://entities/level/maps/navigation_map.tscn" id="2_guod4"]
 [ext_resource type="PackedScene" uid="uid://cpmvh8r1ksapi" path="res://entities/level/spawn/spawn_point.tscn" id="2_tymxq"]
 [ext_resource type="PackedScene" uid="uid://pvci5xpvj4a3" path="res://entities/player/player.tscn" id="3_0d1tk"]
 [ext_resource type="TileSet" uid="uid://ba2sx0o5prjnf" path="res://assets/tilemap/tileset.tres" id="5_40sk3"]
 [ext_resource type="Script" path="res://entities/level/tower_placement/tower_placement.gd" id="5_toung"]
 [ext_resource type="PackedScene" uid="uid://dib8t20w7jc27" path="res://entities/towers/base_tower/base_tower.tscn" id="7_saeev"]
+[ext_resource type="PackedScene" uid="uid://dj2asji2ykap4" path="res://entities/towers/towers_controller/towers_controller.tscn" id="9_nnhyu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r1e6n"]
 resource_local_to_scene = true
@@ -17,6 +19,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 20.0
 
 [node name="Tutorial" type="Node2D" groups=["maps"]]
+script = ExtResource("1_lfbll")
 
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
@@ -54,7 +57,7 @@ script = ExtResource("5_toung")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/TowerPlacement/Middle"]
 position = Vector2(-28, 14)
-polygon = PackedVector2Array(127, 4, 127, 228, 188, 231, 187, 5)
+polygon = PackedVector2Array(141, -3, 141, 222, 172, 223, 173, -2)
 
 [node name="Top" type="Area2D" parent="Map/TowerPlacement"]
 position = Vector2(16, 0)
@@ -62,7 +65,7 @@ script = ExtResource("5_toung")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/TowerPlacement/Top"]
 position = Vector2(-28, 14)
-polygon = PackedVector2Array(14, -21, 16, 7, 653, 11, 651, -20)
+polygon = PackedVector2Array(14, -21, 15, 1, 651, 1, 651, -20)
 
 [node name="Botton" type="Area2D" parent="Map/TowerPlacement"]
 position = Vector2(16, 0)
@@ -70,7 +73,7 @@ script = ExtResource("5_toung")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/TowerPlacement/Botton"]
 position = Vector2(-28, 14)
-polygon = PackedVector2Array(16, 334, 14, 376, 652, 375, 649, 339)
+polygon = PackedVector2Array(14, 352, 14, 376, 652, 375, 650, 355)
 
 [node name="Left" type="Area2D" parent="Map/TowerPlacement"]
 position = Vector2(16, 0)
@@ -78,7 +81,7 @@ script = ExtResource("5_toung")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/TowerPlacement/Left"]
 position = Vector2(-28, 14)
-polygon = PackedVector2Array(16, -20, 16, 375, 43, 376, 42, -19)
+polygon = PackedVector2Array(16, -20, 16, 375, 31, 374, 31, -18)
 
 [node name="Right" type="Area2D" parent="Map/TowerPlacement"]
 position = Vector2(16, 0)
@@ -86,7 +89,7 @@ script = ExtResource("5_toung")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/TowerPlacement/Right"]
 position = Vector2(-28, 14)
-polygon = PackedVector2Array(627, -18, 626, 376, 651, 374, 651, -20)
+polygon = PackedVector2Array(635, -19, 635, 378, 651, 374, 651, -20)
 
 [node name="Entities" type="Node" parent="."]
 
@@ -95,3 +98,5 @@ position = Vector2(494, 134)
 
 [node name="BaseTower" parent="." instance=ExtResource("7_saeev")]
 position = Vector2(129, 230)
+
+[node name="TowersController" parent="." instance=ExtResource("9_nnhyu")]

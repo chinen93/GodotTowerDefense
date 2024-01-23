@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwhspsx8fm65g"]
+[gd_scene load_steps=4 format=3 uid="uid://bwhspsx8fm65g"]
 
 [ext_resource type="TileSet" uid="uid://ba2sx0o5prjnf" path="res://assets/tilemap/tileset.tres" id="1_01u8i"]
 [ext_resource type="Script" path="res://entities/level/obtacles/line/line_obstacle.gd" id="1_36yen"]
+[ext_resource type="Script" path="res://entities/level/tower_placement/tower_placement.gd" id="3_vso8o"]
 
 [node name="LineObstacle" type="Area2D"]
 script = ExtResource("1_36yen")
@@ -9,7 +10,17 @@ script = ExtResource("1_36yen")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_01u8i")
 format = 2
-layer_0/tile_data = PackedInt32Array(262144, 589824, 4, 262146, 720896, 4, 196610, 327680, 1, 131074, 65536, 1, 65538, 65536, 1, 196608, 262144, 1, 131072, 196608, 1, 65536, 196608, 1, 196609, 131072, 0, 131073, 0, 0, 65537, 0, 0, 0, 262144, 0, 2, 327680, 0, 1, 131072, 2, 262145, 262144, 3)
+layer_0/tile_data = PackedInt32Array(262144, 196608, 1, 262146, 65536, 1, 196610, 65536, 1, 131074, 65536, 1, 65538, 65536, 1, 196608, 196608, 1, 131072, 196608, 1, 65536, 196608, 1, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 0, 262144, 0, 2, 327680, 0, 1, 131072, 2, 262145, 0, 0, 327680, 262144, 1, 327682, 327680, 1, 393216, 589824, 4, 393218, 720896, 4, 393217, 262144, 3, 327681, 131072, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 0, 0, 80, 48, 79, 48, 0)
+position = Vector2(0, 7.5)
+scale = Vector2(1, 1.3125)
+polygon = PackedVector2Array(3, -2.66667, 5, 78.0952, 44, 78.0952, 44, -2.66667)
+
+[node name="Top" type="Area2D" parent="."]
+position = Vector2(16, 0)
+script = ExtResource("3_vso8o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top"]
+position = Vector2(-28, 14)
+polygon = PackedVector2Array(20, -3, 19, 72, 53, 72, 53, -3)
