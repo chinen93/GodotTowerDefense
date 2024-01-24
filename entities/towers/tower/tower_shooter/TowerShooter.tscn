@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8v5legb2i2o4"]
+
+[ext_resource type="Script" path="res://entities/towers/tower/tower_shooter/TowerShooter.gd" id="1_n0nya"]
+[ext_resource type="PackedScene" uid="uid://cnhxi3tx3abn" path="res://entities/towers/tower/tower_shooter/tower_range/tower_range.tscn" id="1_u7uji"]
+
+[node name="TowerShooter" type="Node2D"]
+script = ExtResource("1_n0nya")
+
+[node name="TowerRange" parent="." instance=ExtResource("1_u7uji")]
+
+[node name="Timer" type="Timer" parent="."]

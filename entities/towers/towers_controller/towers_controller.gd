@@ -5,13 +5,12 @@ var tower_scenes := {
 	"base_tower": preload("res://entities/towers/base_tower/base_tower.tscn"),
 }
 var is_adding_tower: bool = false
-var tower: Tower 
+var tower: Tower
 
 func spawn(tower_name: String) -> Tower:
 	var tower: Tower = tower_scenes[tower_name].instantiate()
 	return tower
 	
-
 func _ready():
 	tower = null
 
