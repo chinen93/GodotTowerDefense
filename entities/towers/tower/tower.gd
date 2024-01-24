@@ -38,9 +38,12 @@ func start_cooldown():
 	timer.start()
 
 func shoot(enemy: Enemy) -> void:
-	if not is_on_cooldown:
-		print("Shoot at " + str(enemy))
-		start_cooldown()
+	if is_on_cooldown:
+		return
+	
+	print(str(self) + " shoot at " + str(enemy))
+	enemy.take_damage(damage)
+	start_cooldown()
 	
 func _process(delay: float) -> void:
 	var enemy = tower_range.get_target(target_priority)

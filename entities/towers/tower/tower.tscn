@@ -7,6 +7,7 @@
 
 [node name="Tower" type="Area2D"]
 script = ExtResource("1_qur5q")
+damage = 10.0
 
 [node name="TowerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_na7nq")

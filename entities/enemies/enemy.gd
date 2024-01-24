@@ -2,15 +2,17 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var speed := 100
-@export var health := 100:
-	set = set_health
 @export var kill_reward := 100
+@export var damage := 100
+@export var health := 100
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var collision_shape := $CollisionShape2D as CollisionShape2D
+@onready var health_component := $Health as Health
 
 func _ready() -> void:
 	nav_agent.max_speed = speed
+	health_component._set_health(health)
 	
 	# Make sure to not await during _ready.
 	call_deferred("_actor_setup")
@@ -35,9 +37,12 @@ func _physics_process(delta: float) -> void:
 	velocity = cur_agent_pos.direction_to(next_path_pos) * speed
 	move_and_slide()
 
-func set_health(value: int) -> void:
-	health = max(0, value)
+func take_damage(damage: float) -> void:
+	health_component.take_damage(damage)
 	
+	if health_component.is_dead():
+		self.die()
+
 func die() -> void:
 	collision_shape.set_deferred("disabled", true)
 	speed = 0

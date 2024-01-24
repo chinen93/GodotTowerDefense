@@ -8,6 +8,7 @@
 
 [node name="BaseTower" type="Area2D"]
 script = ExtResource("1_vn3ca")
+damage = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1aiud")
