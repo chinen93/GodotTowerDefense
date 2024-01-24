@@ -20,4 +20,3 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="Health" parent="." instance=ExtResource("3_aw5xq")]
-health = 100

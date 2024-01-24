@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt75s5pm7xlsb"]
+[gd_scene load_steps=7 format=3 uid="uid://dt75s5pm7xlsb"]
 
 [ext_resource type="Script" path="res://entities/towers/tower/tower.gd" id="1_qur5q"]
 [ext_resource type="PackedScene" uid="uid://cnhxi3tx3abn" path="res://entities/towers/tower/tower_range.tscn" id="2_yfrvj"]
+[ext_resource type="PackedScene" uid="uid://c5bj2qccoeqac" path="res://entities/misc/state_machine/state_machine.tscn" id="3_epnmf"]
+[ext_resource type="Script" path="res://entities/towers/tower_states/placing_state.gd" id="4_5v2cu"]
+[ext_resource type="Script" path="res://entities/towers/tower_states/selecting_state.gd" id="5_qmsun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_na7nq"]
 
@@ -15,3 +18,12 @@ shape = SubResource("CircleShape2D_na7nq")
 [node name="TowerRange" parent="." instance=ExtResource("2_yfrvj")]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="StateMachine" parent="." instance=ExtResource("3_epnmf")]
+initial_state = NodePath("Placing")
+
+[node name="Placing" type="Node" parent="StateMachine"]
+script = ExtResource("4_5v2cu")
+
+[node name="Selecting" type="Node" parent="StateMachine"]
+script = ExtResource("5_qmsun")
