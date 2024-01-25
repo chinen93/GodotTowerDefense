@@ -1,6 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
+signal enemy_died(enemy: Enemy)
+
 @export var speed := 100
 @export var kill_reward := 100
 @export var damage := 100
@@ -44,6 +46,7 @@ func take_damage(damage: float) -> void:
 		self.die()
 
 func die() -> void:
+	enemy_died.emit(get_instance_id())
 	collision_shape.set_deferred("disabled", true)
 	speed = 0
 	nav_agent.set_velocity(Vector2.ZERO)

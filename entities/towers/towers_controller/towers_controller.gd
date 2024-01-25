@@ -18,9 +18,8 @@ func _handle_inputs() -> void:
 	if tower == null and Input.is_action_pressed("right_mouse_button"):
 		self._add_tower()
 		
-	if Input.is_action_just_released("right_mouse_button"):
+	if tower != null and Input.is_action_just_released("right_mouse_button"):
 		self._release_tower()
-		
 
 func _add_tower() -> void:
 	is_adding_tower = true
