@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://btn7ho2bix2wi"]
+
+[ext_resource type="Script" path="res://entities/towers/tower_state_machine/tower_state_machine.gd" id="1_2laqj"]
+[ext_resource type="Script" path="res://entities/towers/tower_state_machine/states/placing_state.gd" id="1_8742k"]
+[ext_resource type="Script" path="res://entities/towers/tower_state_machine/states/selected_state.gd" id="3_ol2c3"]
+[ext_resource type="Script" path="res://entities/towers/tower_state_machine/states/placed_state.gd" id="3_qstdc"]
+
+[node name="TowerStateMachine" type="Node"]
+script = ExtResource("1_2laqj")
+initial_state = NodePath("Placing")
+
+[node name="Placing" type="Node" parent="."]
+script = ExtResource("1_8742k")
+
+[node name="Selected" type="Node" parent="."]
+script = ExtResource("3_ol2c3")
+
+[node name="Placed" type="Node" parent="."]
+script = ExtResource("3_qstdc")

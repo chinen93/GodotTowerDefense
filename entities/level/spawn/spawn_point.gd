@@ -10,6 +10,6 @@ func spawn(enemy_name: String) -> void:
 	get_parent().add_child(enemy)
 	enemy.global_position = position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_released("number_1"):
 		spawn("basic_enemy")

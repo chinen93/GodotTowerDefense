@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://expanu0q8l87"]
+[gd_scene load_steps=10 format=3 uid="uid://expanu0q8l87"]
 
 [ext_resource type="PackedScene" uid="uid://cdticmex22anh" path="res://entities/level/objective/objective.tscn" id="1_hrtwc"]
 [ext_resource type="Script" path="res://entities/level/maps/map.gd" id="1_lfbll"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://pvci5xpvj4a3" path="res://entities/player/player.tscn" id="3_0d1tk"]
 [ext_resource type="TileSet" uid="uid://ba2sx0o5prjnf" path="res://assets/tilemap/tileset.tres" id="5_40sk3"]
 [ext_resource type="Script" path="res://entities/level/tower_placement/tower_placement.gd" id="5_toung"]
-[ext_resource type="PackedScene" uid="uid://dib8t20w7jc27" path="res://entities/towers/base_tower/base_tower.tscn" id="7_saeev"]
 [ext_resource type="PackedScene" uid="uid://dj2asji2ykap4" path="res://entities/towers/towers_controller/towers_controller.tscn" id="9_nnhyu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r1e6n"]
@@ -96,7 +95,5 @@ polygon = PackedVector2Array(635, -19, 635, 378, 651, 374, 651, -20)
 [node name="Player" parent="Entities" instance=ExtResource("3_0d1tk")]
 position = Vector2(494, 134)
 
-[node name="BaseTower" parent="." instance=ExtResource("7_saeev")]
-position = Vector2(129, 230)
-
 [node name="TowersController" parent="." instance=ExtResource("9_nnhyu")]
+tower_parent_path = NodePath("../Entities")

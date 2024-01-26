@@ -29,10 +29,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	targets_location[key] = location
 	targets.push_front(body)
-	
-	for bla in targets_location:
-		print(str(bla) + " == " + str(targets_location[bla]))
-	print("========")
 
 func _on_body_exited(body: Node2D) -> void:
 	if not is_instance_of(body, Enemy): return

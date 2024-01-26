@@ -30,9 +30,9 @@ func _ready():
 	
 func _camera_settings() -> void:
 	camera.limit_left = 0
-	camera.limit_right = screen_size.x
+	camera.limit_right = int(screen_size.x)
 	camera.limit_top = 0
-	camera.limit_bottom = screen_size.y
+	camera.limit_bottom = int(screen_size.y)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

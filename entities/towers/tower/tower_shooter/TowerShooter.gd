@@ -1,9 +1,11 @@
 class_name TowerShooter
 extends Node2D
 
+enum TargetPriority { FIRST, LAST, HEALTH }
+
 @export var fire_rate: float = 0.7
 @export var damage: float = 20
-@export var target_priority: int
+@export var target_priority: TargetPriority
 
 @onready var tower_range := $TowerRange as TowerRange
 @onready var timer := $Timer as Timer
@@ -31,7 +33,7 @@ func shoot(enemy: Enemy) -> void:
 	enemy.take_damage(damage)
 	start_cooldown()
 	
-func _process(delay: float) -> void:
+func _process(_delay: float) -> void:
 	var enemy = tower_range.get_target(target_priority)
 	
 	if enemy == null:

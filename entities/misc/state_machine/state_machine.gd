@@ -19,11 +19,15 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
 	
-func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
+func transition_to(target_state_name: NodePath, msg: Dictionary = {}) -> void:
 	if not has_node(target_state_name):
+		return
+		
+	var target_state = get_node(target_state_name)
+	if state == target_state:
 		return
 
 	state.exit()
-	state = get_node(target_state_name)
+	state = target_state
 	state.enter(msg)
 	

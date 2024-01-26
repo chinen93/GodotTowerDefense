@@ -29,7 +29,7 @@ func _actor_setup():
 	var objective: Node2D = map.get_node("%Objective")
 	nav_agent.set_target_position(objective.global_position)
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if nav_agent.is_navigation_finished():
 		return
 
@@ -39,8 +39,8 @@ func _physics_process(delta: float) -> void:
 	velocity = cur_agent_pos.direction_to(next_path_pos) * speed
 	move_and_slide()
 
-func take_damage(damage: float) -> void:
-	health_component.take_damage(damage)
+func take_damage(damage_taken: float) -> void:
+	health_component.take_damage(damage_taken)
 	
 	if health_component.is_dead():
 		self.die()
