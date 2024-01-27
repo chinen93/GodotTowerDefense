@@ -6,6 +6,7 @@ enum TargetPriority { FIRST, LAST, HEALTH }
 @export var fire_rate: float = 0.7
 @export var damage: float = 20
 @export var target_priority: TargetPriority
+@export var bullet: PackedScene
 
 @onready var tower_range := $TowerRange as TowerRange
 @onready var timer := $Timer as Timer
@@ -25,21 +26,22 @@ func start_cooldown():
 	timer.one_shot = true
 	timer.start()
 
-func shoot(enemy: Enemy) -> void:
+func shoot() -> void:
 	if is_on_cooldown:
 		return
-	
-	print(str(self) + " shoot at " + str(enemy))
-	enemy.take_damage(damage)
-	start_cooldown()
-	
-func _process(_delay: float) -> void:
+		
 	var enemy = tower_range.get_target(target_priority)
-	
 	if enemy == null:
 		return
-		
-	shoot(enemy)
+	
+	var _bullet: TowerBullet = bullet.instantiate()
+	_bullet.setup(enemy, damage)
+	get_parent().add_child(_bullet)
+	
+	start_cooldown()
+	
+func _process(_delay: float) -> void:		
+	shoot()
 
 func _on_timer_timeout():
 	is_on_cooldown = false

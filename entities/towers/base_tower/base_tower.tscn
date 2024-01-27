@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dib8t20w7jc27"]
+[gd_scene load_steps=7 format=3 uid="uid://dib8t20w7jc27"]
 
 [ext_resource type="Texture2D" uid="uid://csr1vkg0ovynf" path="res://assets/entities/towers/tile_0084.png" id="1_1aiud"]
 [ext_resource type="Script" path="res://entities/towers/base_tower/base_tower.gd" id="1_vn3ca"]
 [ext_resource type="PackedScene" uid="uid://b8v5legb2i2o4" path="res://entities/towers/tower/tower_shooter/TowerShooter.tscn" id="3_oltfw"]
 [ext_resource type="PackedScene" uid="uid://btn7ho2bix2wi" path="res://entities/towers/tower_state_machine/tower_state_machine.tscn" id="4_2koe4"]
+[ext_resource type="PackedScene" uid="uid://bwefhnpmuk0y7" path="res://entities/towers/tower/tower_shooter/tower_bullets/tower_bullet_basic/tower_bullet_basic.tscn" id="5_4l36r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hutu3"]
 
@@ -16,6 +17,9 @@ texture = ExtResource("1_1aiud")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hutu3")
 
+[node name="TowerComponents" type="Node" parent="."]
+
 [node name="TowerShooter" parent="." instance=ExtResource("3_oltfw")]
+bullet = ExtResource("5_4l36r")
 
 [node name="TowerStateMachine" parent="." instance=ExtResource("4_2koe4")]
